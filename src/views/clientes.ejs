@@ -1,0 +1,76 @@
+<!-- Header HTML -->
+<%- include ("partials/_header.ejs") %>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+          <table class="table table-bordered">
+            <thead class="table-primary text-center">
+              <tr>
+                <th>N°</th>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Contacto</th>
+                <th>Ampliar información</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <% if (datos) { %>
+                <% for (var i = 0 ; i < datos.length; i++) { 
+                  %>
+                  <tr>
+                    <td><%= (i + 1) %></td>
+                    <td><%= datos[i].cedula %></td>
+                    <td><%= datos[i].nombre %></td>
+                    <td><%= datos[i].contacto %></td>
+                    <td>
+                      <a href="/visualizarPqr/<%= datos[i].id %>" class="btn btn-info" >Ver más</a>
+                    </td>
+                  </tr>
+                <% } %>
+              <% } %>
+            </tbody>
+          </table> 
+        </div>
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-body">
+              <form action="/guardarPqr" method="POST">
+                <div>
+                  <input type="number" name="cedula" placeholder="Ingresa tu número de identificacion" class="form-control mb-2" required/>
+                </div>
+                <div>
+                  <input type="text" name="nombre" placeholder="Ingresa tu nombre completo" class="form-control mb-2" required/>
+                </div>
+                <div>
+                  <input type="number" name="contacto" placeholder="Ingresa tu número de contacto" class="form-control mb-2" required/> 
+                </div>
+                <div>
+                  <input type="email" name="email" placeholder="Ingresa tu correo electrónico" class="form-control mb-2" required/>
+                </div>
+                <div>
+                  <input type="text" name="direccion" placeholder="Ingresa tu dirección" class="form-control mb-2" required/>
+                </div>
+                <div>
+                  <select name="id_municipio" class="form-select mb-2" aria-label="Default select example" required>
+                    <option value="1">Bogotá</option>
+                    <option value="2">Cali</option>
+                    <option value="3">Cartagena</option>
+                    <option value="4">Medellin</option>
+                  </select>
+                </div>
+                <div>
+                  <input type="text" name="pqr" placeholder="Escribe tu PQR" class="form-control mb-2"required/>
+                </div>
+                <div class="col text-center">
+                  <button type="submit" class="btn btn-success">Guardar PQR</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer HTML -->
+<%- include ("partials/_footer.ejs") %>

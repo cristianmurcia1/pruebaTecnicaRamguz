@@ -1,0 +1,49 @@
+<!-- Header HTML -->
+<%- include ("partials/_header.ejs") %>
+
+<div class="container mt-5">
+    <div class="row" style="display: flex; align-items: center; justify-content: center;">
+        <div class="col-md-5">
+            <div class="card" >
+                <div class="card-body">
+                    <form action="/visualizarPqr/" method="GET">
+                        <div>
+                            <p>Número de identificación</p>
+                          <input type="text" name="cedula" value="<%= datos.cedula %>" class="form-control mb-3" disabled />
+                        </div>
+                        <div>
+                            <p>Nombre del cliente</p>
+                          <input type="text" name="nombre" value="<%= datos.nombre %>" class="form-control mb-3" disabled />
+                        </div>
+                        <div>
+                            <p>Número de contacto</p>
+                          <input type="text" name="contacto" value="<%= datos.contacto %>" class="form-control mb-3" disabled /> 
+                        </div>
+                        <div>
+                            <p>Correo electrónico</p>
+                          <input type="text" name="email" value="<%= datos.email %>" class="form-control mb-3" disabled />
+                        </div>
+                        <div>
+                            <p>Dirección</p>
+                          <input type="text" name="direccion" value="<%= datos.direccion %>" class="form-control mb-3" disabled />
+                        </div>
+                        <div>
+                            <p>Municipio de residencia</p>
+                          <input type="text" name="municipio" value="<%= datos.nombre_municipio %>" class="form-control mb-3" disabled />
+                        </div>
+                        <div>
+                            <p>PQR</p>
+                          <input type="text" name="pqr" value="<%= datos.pqr %>" class="form-control mb-3" disabled />
+                        </div>
+                        <div class="col text-center">
+                            <a href="/" class="btn btn-info">Regresar</a>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer HTML -->
+<%- include ("partials/_footer.ejs") %>
